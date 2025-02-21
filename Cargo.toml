@@ -1,7 +1,7 @@
 [package]
 name = "youareanidiot"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 repository="https://github.com/nbittich/youareanidiot"
 authors=["Your Mom"]
 description="Educational app that encrypt the my documents directory"
