@@ -16,13 +16,6 @@ slint::include_modules!();
 fn main() {
     let home_dir = dirs::document_dir().unwrap();
 
-    let encrypted = encrypt(SECRET_DECRYP_KEY, b"hola que mira bobo");
-    println!("{}, {home_dir:?}", String::from_utf8_lossy(&encrypted));
-    println!(
-        "{}, {home_dir:?}",
-        String::from_utf8_lossy(&decrypt(SECRET_DECRYP_KEY, &encrypted))
-    );
-
     let mut clear_paths = vec![];
     read_dir_recur(&home_dir, &mut clear_paths, false);
 
