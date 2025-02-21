@@ -5248,7 +5248,7 @@ dependencies = [
 
 [[package]]
 name = "youareanidiot"
-version = "0.1.2"
+version = "0.1.4"
 dependencies = [
  "aes-gcm",
  "dirs",
