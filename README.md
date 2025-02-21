@@ -7,6 +7,10 @@ By default, encrypt your "My Documents" directory.
 Only for educational purpose, the decrypt key is actually in the source code.
 
 
+
+https://github.com/user-attachments/assets/c311673d-e11f-4c46-9e81-4ddb200b73b6
+
+
 ## INSTALLATION 
 
 - Make sure you have a backup of your "My documents" directory
